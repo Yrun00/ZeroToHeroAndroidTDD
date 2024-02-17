@@ -22,13 +22,11 @@ class MainActivity : AppCompatActivity() {
         uiState = UiState.Base("0")
         incrementButton.setOnClickListener {
             uiState = count.increment(textView.text.toString())
-            uiState.update(textView)
-            uiState.update(incrementButton,decrementButton)
+            uiState.update(incrementButton,decrementButton,textView)
         }
         decrementButton.setOnClickListener {
             uiState = count.decrement(textView.text.toString())
-            uiState.update(textView)
-            uiState.update(incrementButton,decrementButton)
+            uiState.update(incrementButton,decrementButton,textView)
         }
     }
     override fun onSaveInstanceState(outState: Bundle) {

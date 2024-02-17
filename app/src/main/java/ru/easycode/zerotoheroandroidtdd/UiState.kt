@@ -4,20 +4,18 @@ import android.widget.Button
 import android.widget.TextView
 
 interface UiState {
-    fun update(text:TextView)
-    fun update(incrementButton:Button,decrementButton:Button)
+    fun update(incrementButton:Button,decrementButton:Button,text:TextView)
 
     abstract class Abstract(
         private val text: String = "0",
         private val incrementEnabled: Boolean = true,
         private val decrementEnabled: Boolean = true,
     ):UiState {
-        override fun update(text:TextView){
-            text.text = this.text
-        }
-        override fun update(incrementButton:Button,decrementButton:Button){
+
+        override fun update(incrementButton:Button,decrementButton:Button,text:TextView){
             incrementButton.isEnabled = incrementEnabled
             decrementButton.isEnabled = decrementEnabled
+            text.text = this.text
         }
     }
 
